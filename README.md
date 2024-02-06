@@ -1,19 +1,21 @@
-# Lab-Escape
-Suite à une catastrophe où les scientifiques ont perdu le contrôle de leurs inventions, un laboratoire est devenu le théâtre d'une catastrophe technologique. Les créations utiles et innovantes ont muté en machines rebelles, décimant leurs créateurs et transformant le laboratoire en un labyrinthe hostile.
+# Lab-Escape 🧪
+Following a catastrophe in which scientists lost control of their inventions, a laboratory became the scene of a technological catastrophe. Useful and innovative creations have mutated into rebellious machines, decimating their creators and turning the laboratory into a hostile labyrinth.
+
+Nova Vanguard, the lone guardian of the lab, emerges from the shadows to confront the mechanical threat that has taken hold of the laboratory. A former protector of technological advances, Nova now finds himself confronted by his own protégés, who have become hostile. Armed only with a blaster and unwavering determination, Nova must navigate the corridors and rooms of the laboratory, battling rampaging robots and interacting with the PCs and components left behind by the missing scientists.
+
+The laboratory is now a cybernetic fortress, with sections devastated by robotic explosions and abandoned research rooms. Nova Vanguard will have to eliminate all the faulty robots that now patrol every nook and cranny.
 
 
 
-# How to run ⬇
-1. Download this repository `git clone https://github.com/Evan-Guillet/Lab-Escape.git`
-
+# How to play the game? ⬇
+1. Go to the `Build` folder
+2. Download `LabEscapSetup.exe`
+3. Launch the installer and follow the installation procedure
+4. ... and now you can play!
 
 
 # Goal 🎯
-Suite à une catastrophe où les scientifiques ont perdu le contrôle de leurs inventions, un laboratoire est devenu le théâtre d'une catastrophe technologique. Les créations utiles et innovantes ont muté en machines rebelles, décimant leurs créateurs et transformant le laboratoire en un labyrinthe hostile.
-
-Nova Vanguard, le gardien solitaire du labo, émerge de l'ombre pour faire face à la menace mécanique qui s'est emparée du laboratoire. Ancien protecteur des avancées technologiques, Nova se retrouve désormais confronté à ses propres protégés devenus hostiles. Armé d'un simple blaster et d'une détermination inébranlable, Nova doit naviguer à travers les couloirs et salles du laboratoire, affrontant des robots déchaînés et intéragissant avec les pcs et éléments laissées par les scientifiques disparus.
-
-Le laboratoire est maintenant une forteresse cybernétique, avec des sections dévastées par des explosions robotiques, des salles de recherche abandonnées. Nova Vanguard devra éliminer tous les robots défectueux qui patrouillent désormais dans chaque recoin. La mission de Nova est donc de nettoyer le désordre mécanique afin de ne pas dévoiler cette catastrophe au monde.
+Eliminate all the enemies in each level and interact with the PCs to open up the next section of levels.
 
 
 
@@ -23,12 +25,21 @@ The whole project is coded in Unity + C#. The project is saved and available on 
 
 
 # Development time ⌛
-29 January 2024 – 1 March 2024 • 34 days
+29 January 2024 – 1 March 2024 • 32 days
+
+
+
+# Teams 👨‍💻
+- Matias BELLAUD
+- Maxime FUZEAU
+- Evan GUILLET
 
 
 
 # Copyright ©️
-The assets used for the game come from the Tech_Dungeon_Roguelite, created by https://trevor-pupkin.itch.io/
-... and Sound Effects Assets for Indie Game Developers, created by https://gameburp.itch.io/
+The assets used for the game come from the Tech_Dungeon_Roguelite, created by trevor-pupkin.itch.io/
 
-`LICENCE: This asset pack can be used in both free and commercial projects. You can modify it to suit your own needs. You may not redistribute or resell it.`
+LICENSED by Trevor Pupkin:
+- Permitted use in free and commercial projects.
+- Modification to suit your needs permitted.
+- Redistribution or resale prohibited.
