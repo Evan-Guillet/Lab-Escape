@@ -1,0 +1,9 @@
+tree "Root"
+    fallback
+        PursuePlayer
+        repeat
+            sequence
+                ChooseDestination
+                Wait 1
+                GoToDestination
+                Wait 1.0
