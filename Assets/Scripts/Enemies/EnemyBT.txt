@@ -1,9 +1,9 @@
 tree "Root"
     fallback
-        PursuePlayer
         repeat
             sequence
-                ChooseDestination
+                NextDestination
                 Wait 1
                 GoToDestination
                 Wait 1.0
+        PursueTarget

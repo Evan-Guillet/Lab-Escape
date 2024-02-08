@@ -1,40 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Panda;
 using UnityEngine.AI;
-using Unity.VisualScripting;
+using Panda;
 
 public class Enemy : MonoBehaviour {
 
     NavMeshAgent agent;
+
     public GameObject[] waypoints;
-    public int currentDestination = -1;
-    public GameObject pursuedPlayer = null;
+
+    int currentWaypoint = -1;
+
+    public GameObject PerceivedTarget = null;
+    SpriteRenderer renderer;
+    float lastPosX = 0;
+    float currentPosX = 0;
 
     void Start(){
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+
+        renderer = GetComponent<SpriteRenderer>();
+        lastPosX = transform.position.x;
     }
 
     void Update(){
+        FlipSpriteToX();
+    }
+    
+    void FlipSpriteToX(){
+        currentPosX = transform.position.x;
         
+        if(currentPosX < lastPosX){
+            renderer.flipX = true;
+
+        } else if(currentPosX > lastPosX){
+            renderer.flipX = false;
+        }
+        lastPosX = transform.position.x;
     }
 
     [Task]
-    bool ChooseDestination(){
-        if(waypoints.Length == 0){
-            return false;
-        }
-        currentDestination = (currentDestination + 1) % waypoints.Length;
-        agent.SetDestination(waypoints[currentDestination].transform.position);
+    bool NextDestination(){
+        currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
+        agent.SetDestination(waypoints[currentWaypoint].transform.position);
         return true;
     }
 
     [Task]
     void GoToDestination(){
-        if(pursuedPlayer != null){
+        if(PerceivedTarget != null){
             Task.current.Fail();
             return;
         }
@@ -45,11 +62,11 @@ public class Enemy : MonoBehaviour {
     }
 
     [Task]
-    void PursuePlayer(){
-        if(pursuedPlayer == null){
+    void PursueTarget(){
+        if(PerceivedTarget == null){
             Task.current.Fail();
             return;
         }
-        agent.SetDestination(pursuedPlayer.transform.position);
+        agent.SetDestination(PerceivedTarget.transform.position);
     }
 }
