@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour {
     SpriteRenderer renderer;
     float lastPosX = 0;
     float currentPosX = 0;
+    Animator animator;
 
     void Start(){
         agent = GetComponent<NavMeshAgent>();
@@ -24,6 +25,8 @@ public class Enemy : MonoBehaviour {
 
         renderer = GetComponent<SpriteRenderer>();
         lastPosX = transform.position.x;
+
+        animator = GetComponent<Animator>();
     }
 
     void Update(){
