@@ -14,8 +14,6 @@ public class Enemy : MonoBehaviour {
 
     public GameObject PerceivedTarget = null;
     SpriteRenderer renderer;
-    float lastPosX = 0;
-    float currentPosX = 0;
     Animator animator;
 
     void Start(){
@@ -24,25 +22,21 @@ public class Enemy : MonoBehaviour {
         agent.updateUpAxis = false;
 
         renderer = GetComponent<SpriteRenderer>();
-        lastPosX = transform.position.x;
-
         animator = GetComponent<Animator>();
     }
 
     void Update(){
         FlipSpriteToX();
+        animator.SetBool("IsRunning", agent.velocity.x != 0);
     }
-    
+
     void FlipSpriteToX(){
-        currentPosX = transform.position.x;
-        
-        if(currentPosX < lastPosX){
+        if(agent.velocity.x < 0){
             renderer.flipX = true;
 
-        } else if(currentPosX > lastPosX){
+        } else if(agent.velocity.x > 0){
             renderer.flipX = false;
         }
-        lastPosX = transform.position.x;
     }
 
     [Task]
