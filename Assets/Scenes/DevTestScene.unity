@@ -1160,35 +1160,18 @@ GameObject:
   m_Component:
   - component: {fileID: 2059359186}
   - component: {fileID: 2059359185}
-  - component: {fileID: 2059359184}
+  - component: {fileID: 2059359193}
   - component: {fileID: 2059359187}
   - component: {fileID: 2059359189}
   - component: {fileID: 2059359190}
   - component: {fileID: 2059359192}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Kamikaze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2059359184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2059359183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb1ee2b9acfea0d4fa9a63694d4cb912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 125662729}
-  - {fileID: 1556410919}
-  - {fileID: 1750198616}
-  PerceivedTarget: {fileID: 0}
 --- !u!114 &2059359185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1334,6 +1317,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2059359193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059359183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb1ee2b9acfea0d4fa9a63694d4cb912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 125662729}
+  - {fileID: 1556410919}
+  - {fileID: 1750198616}
+  PerceivedTarget: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

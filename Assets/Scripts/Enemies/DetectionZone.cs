@@ -14,13 +14,13 @@ public class DetectionZone : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider){
         if(collider.tag == "Player"){
-            transform.parent.GetComponent<Enemy>().PerceivedTarget = collider.gameObject;
+            transform.parent.GetComponent<Kamikaze>().PerceivedTarget = collider.gameObject;
         }
     }
 
     void OnTriggerExit2D(Collider2D collider){
         if(collider.tag == "Player"){
-            transform.parent.GetComponent<Enemy>().PerceivedTarget = null;
+            transform.parent.GetComponent<Kamikaze>().PerceivedTarget = null;
         }
     }
 }

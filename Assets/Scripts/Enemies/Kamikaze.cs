@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Panda;
 
-public class Enemy : MonoBehaviour {
+public class Kamikaze : MonoBehaviour {
 
     NavMeshAgent agent;
 
@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour {
 
     void Update(){
         FlipSpriteToX();
-        animator.SetBool("IsRunning", agent.velocity.x != 0);
+        Animations();
     }
 
     void FlipSpriteToX(){
@@ -36,6 +36,18 @@ public class Enemy : MonoBehaviour {
 
         } else if(agent.velocity.x > 0){
             renderer.flipX = false;
+        }
+    }
+
+    void Death(){
+        Destroy(gameObject);
+    }
+
+    void Animations(){
+        animator.SetBool("IsRunning", agent.velocity.x != 0);
+
+        if(Input.GetKeyDown(KeyCode.F3)){
+            animator.SetTrigger("Death");
         }
     }
 
