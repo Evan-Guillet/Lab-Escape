@@ -15,6 +15,9 @@ public class Kamikaze : MonoBehaviour {
     public GameObject PerceivedTarget = null;
     SpriteRenderer renderer;
     Animator animator;
+    float time = 0.0f;
+    bool notYetExploded = true;
+    float damage = 35;
 
     void Start(){
         agent = GetComponent<NavMeshAgent>();
@@ -77,5 +80,27 @@ public class Kamikaze : MonoBehaviour {
             return;
         }
         agent.SetDestination(PerceivedTarget.transform.position);
+        if(agent.remainingDistance <= 1){
+            Task.current.Fail();
+            return;
+        }
+    }
+
+    [Task]
+    void SelfDestruction(){
+        if(time >= 2.29f){
+            Destroy(gameObject);
+            return;
+
+        } else if(time >= 2.0f && notYetExploded){
+            Debug.Log("DAMAGE");
+            notYetExploded = false;
+            return;
+        }
+
+        if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+            animator.SetTrigger("Death");
+
+        time += Time.deltaTime;
     }
 }

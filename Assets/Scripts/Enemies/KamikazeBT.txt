@@ -7,3 +7,4 @@ tree "Root"
                 GoToDestination
                 Wait 1.0
         PursueTarget
+        SelfDestruction
