@@ -92,11 +92,13 @@ public class Kamikaze : MonoBehaviour {
             Destroy(gameObject);
             return;
 
-        } else if(time >= 2.0f && notYetExploded){
-            TargetTest player = PerceivedTarget.GetComponent<TargetTest>();
-            player.currentHitPoints -= damage;
-            notYetExploded = false;
-            return;
+        } else if(time >= 2.0f){
+            if(PerceivedTarget != null){
+                TargetTest player = PerceivedTarget.GetComponent<TargetTest>();
+                player.currentHitPoints -= damage;
+                notYetExploded = false;
+                return;
+            }
         }
 
         if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
