@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 113483350}
   - component: {fileID: 113483349}
   - component: {fileID: 113483348}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Kamikaze (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -780,7 +780,7 @@ GameObject:
   - component: {fileID: 984057461}
   - component: {fileID: 984057460}
   - component: {fileID: 984057459}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Kamikaze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -998,7 +998,7 @@ GameObject:
   - component: {fileID: 1207106157}
   - component: {fileID: 1207106156}
   - component: {fileID: 1207106155}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Kamikaze (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1178,7 +1178,7 @@ GameObject:
   - component: {fileID: 1327998980}
   - component: {fileID: 1327998982}
   - component: {fileID: 1327998981}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1491,7 +1491,7 @@ GameObject:
   - component: {fileID: 1713616197}
   - component: {fileID: 1713616199}
   - component: {fileID: 1713616198}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1816,7 +1816,7 @@ GameObject:
   - component: {fileID: 2009694842}
   - component: {fileID: 2009694844}
   - component: {fileID: 2009694843}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -42,10 +42,6 @@ public class Kamikaze : MonoBehaviour {
         }
     }
 
-    void Death(){
-        Destroy(gameObject);
-    }
-
     void Animations(){
         animator.SetBool("IsRunning", agent.velocity.x != 0);
 
