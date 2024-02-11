@@ -93,7 +93,7 @@ public class Kamikaze : MonoBehaviour {
             return;
 
         } else if(time >= 2.0f){
-            if(PerceivedTarget != null){
+            if(PerceivedTarget != null && notYetExploded){
                 TargetTest player = PerceivedTarget.GetComponent<TargetTest>();
                 player.currentHitPoints -= damage;
                 notYetExploded = false;
