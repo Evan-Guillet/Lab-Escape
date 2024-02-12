@@ -19,6 +19,10 @@ public class Kamikaze : MonoBehaviour {
     bool notYetExploded = true;
     float damage = 35;
 
+    public AudioSource audioSource;
+    public AudioClip explode;
+    SpriteRenderer alerteSpriteRenderer = null;
+
     void Start(){
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
@@ -26,6 +30,11 @@ public class Kamikaze : MonoBehaviour {
 
         renderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+
+        Transform alerteChild = transform.Find("Alerte");
+        alerteSpriteRenderer = alerteChild.GetComponent<SpriteRenderer>();
+        alerteSpriteRenderer.enabled = false;
     }
 
     void Update(){
@@ -72,11 +81,14 @@ public class Kamikaze : MonoBehaviour {
     [Task]
     void PursueTarget(){
         if(PerceivedTarget == null){
+            alerteSpriteRenderer.enabled = false;
             Task.current.Fail();
             return;
         }
+        alerteSpriteRenderer.enabled = true;
         agent.SetDestination(PerceivedTarget.transform.position);
         if(agent.remainingDistance <= 1){
+            alerteSpriteRenderer.enabled = false;
             Task.current.Fail();
             return;
         }
@@ -84,7 +96,7 @@ public class Kamikaze : MonoBehaviour {
 
     [Task]
     void SelfDestruction(){
-        if(time >= 2.29f){
+        if(time >= 3f){
             Destroy(gameObject);
             return;
 
@@ -92,6 +104,7 @@ public class Kamikaze : MonoBehaviour {
             if(PerceivedTarget != null && notYetExploded){
                 TargetTest player = PerceivedTarget.GetComponent<TargetTest>();
                 player.currentHitPoints -= damage;
+                audioSource.PlayOneShot(explode);
                 notYetExploded = false;
                 return;
             }
