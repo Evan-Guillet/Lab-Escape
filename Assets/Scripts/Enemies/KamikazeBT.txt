@@ -1,0 +1,10 @@
+tree "Root"
+    fallback
+        repeat
+            sequence
+                NextDestination
+                Wait 1
+                GoToDestination
+                Wait 1.0
+        PursueTarget
+        SelfDestruction
