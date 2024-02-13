@@ -4,16 +4,21 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 public class Player : MonoBehaviour {
 
-    public float walkSpeed = 4; // unité unity par second
+    public float walkSpeed = 20; // unité unity par second
     public float jumpForce = 50;
     float moveDirectionX = 0;
     float moveDirectionY = 0;
     float isShooting = 0;
     float isDead = 0;
-    public float hitPoints = 100;
+    public float maxHitPoints = 100;
+    public float currentHitPoints = 100;
+    public float lastHitPoints = 100;
+    public event Action OnHit;
+    float time = 0.0f;
     Rigidbody2D rigidBody;
     SpriteRenderer renderer;
     Animator animator;
@@ -33,6 +38,8 @@ public class Player : MonoBehaviour {
         transform.position += new Vector3(walkSpeed*moveDirectionX*Time.deltaTime,0,0);
         transform.position += new Vector3(0,walkSpeed*moveDirectionY*Time.deltaTime,0);
         PlayerShoot();
+        IsHit();
+        Death();
     }
 
     void OnMoveX(InputValue value){
@@ -47,14 +54,16 @@ public class Player : MonoBehaviour {
 
     void OnMoveY(InputValue value){
         moveDirectionY = value.Get<float>();
-        animator.SetBool("IsWalking",moveDirectionY != 0 || moveDirectionX != 0);
+        animator.SetBool("IsWalking", moveDirectionY != 0 || moveDirectionX != 0);
     }
 
+    /*
     void OnInteract(InputValue value){
         isDead = value.Get<float>();
-        animator.SetBool("IsDead",isDead != 0);
+        animator.SetBool("IsDead", currentHitPoints <= 0);
         Destroy(gameObject, 1.3f);
     }
+    */
 
     void PlayerShoot(){
         animator.SetBool("IsShooting",false);
@@ -73,10 +82,30 @@ public class Player : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision){
-        if(collision.gameObject.tag == "projectileEnnemie")
-        {
-            hitPoints -= 1;
+    void IsHit(){
+        if(currentHitPoints < lastHitPoints){
+            OnHit?.Invoke();
+        }
+        lastHitPoints = currentHitPoints;
+    }
+
+
+    void Death(){
+        if(currentHitPoints <= 0){
+            if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+                animator.SetTrigger("Death");
+
+            if(time >= 1.3f)
+                Destroy(gameObject);
+
+            time += Time.deltaTime;
         }
     }
+
+    /*
+    void OnCollisionEnter2D(Collision2D collision){
+        if(collision.gameObject.tag == "projectileEnnemie"){
+            currentHitPoints -= 1;
+        }
+    }*/
 }

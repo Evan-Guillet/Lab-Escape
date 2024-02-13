@@ -102,8 +102,9 @@ public class Kamikaze : MonoBehaviour {
 
         } else if(time >= 2.0f){
             if(PerceivedTarget != null && notYetExploded){
-                TargetTest player = PerceivedTarget.GetComponent<TargetTest>();
+                Player player = PerceivedTarget.GetComponent<Player>();
                 player.currentHitPoints -= damage;
+                Debug.Log(player.currentHitPoints);
                 audioSource.PlayOneShot(explode);
                 notYetExploded = false;
                 return;

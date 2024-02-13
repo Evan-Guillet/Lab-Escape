@@ -99,8 +99,7 @@ GameObject:
   - component: {fileID: 2772726466016597815}
   - component: {fileID: 6801003598950492646}
   - component: {fileID: 2031601299342416320}
-  - component: {fileID: 3263423869042806101}
-  - component: {fileID: 3042765082471119643}
+  - component: {fileID: 8062220751265581356}
   m_Layer: 0
   m_Name: Kamikaze
   m_TagString: Untagged
@@ -118,7 +117,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6576535209130721692}
@@ -164,7 +163,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   PerceivedTarget: {fileID: 0}
-  audioSource: {fileID: 3263423869042806101}
+  audioSource: {fileID: 8062220751265581356}
   explode: {fileID: 8300000, guid: e6d8328b4fe82d64a8ac2cbe0b31eb20, type: 3}
 --- !u!195 &7898816520831298858
 NavMeshAgent:
@@ -273,7 +272,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!82 &3263423869042806101
+--- !u!82 &8062220751265581356
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -369,14 +368,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &3042765082471119643
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5391339651932170828}
-  m_Enabled: 1
 --- !u!1 &7065997187795150207
 GameObject:
   m_ObjectHideFlags: 0

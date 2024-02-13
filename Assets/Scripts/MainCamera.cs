@@ -7,10 +7,10 @@ public class MainCamera : MonoBehaviour {
     public float speed = 2.0f;
     float initialZPosition;
     public Transform playerPosition;
-
+    
     void Start(){
         initialZPosition = transform.position.z;
-        FindObjectOfType<TargetTest>().OnHit += Hit;    // Lancer le tremblement quand le personnage est touché
+        FindObjectOfType<Player>().OnHit += Hit;    // Lancer le tremblement quand le personnage est touché
     }
 
     void Update(){
@@ -25,19 +25,19 @@ public class MainCamera : MonoBehaviour {
 
     IEnumerator ShakeCamera(){
         float elapsedTime = 0f;
-
+        
         while(elapsedTime < 0.15f){ // Durée du tremblement
             // Calcul de tremblement en X et en Y
             float shakeX = Mathf.Cos(Time.time * speed * 1.5f) * amplitude;
             float shakeY = Mathf.Sin(Time.time * speed * 1.5f) * amplitude;
-
+            
             // Appliquer le tremblement
             transform.localPosition = new Vector3(shakeX, shakeY, initialZPosition);
 
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
+        
         // Repositionner la camera à sa position initial
         transform.localPosition = new Vector3(0f, 0f, initialZPosition);
     }
