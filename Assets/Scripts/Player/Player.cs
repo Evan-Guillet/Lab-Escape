@@ -5,8 +5,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
-{
+public class Player : MonoBehaviour {
+
     public float walkSpeed = 4; // unité unity par second
     public float jumpForce = 50;
     float moveDirectionX = 0;
@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
                     Debug.LogError("the bullet is NULL");
                 }
             }
-        };
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision){

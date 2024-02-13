@@ -6,10 +6,17 @@ public class MainCamera : MonoBehaviour {
     public float amplitude = 0.2f;
     public float speed = 2.0f;
     float initialZPosition;
+    public Transform playerPosition;
 
     void Start(){
         initialZPosition = transform.position.z;
         FindObjectOfType<TargetTest>().OnHit += Hit;    // Lancer le tremblement quand le personnage est touché
+    }
+
+    void Update(){
+        if (playerPosition != null){
+            transform.position = new Vector3(playerPosition.position.x, playerPosition.position.y, transform.position.z);
+        }
     }
 
     void Hit(){
