@@ -20,7 +20,7 @@ public class Player : MonoBehaviour {
     public event Action OnHit;
     float time = 0.0f;
     Rigidbody2D rigidBody;
-    SpriteRenderer renderer;
+    SpriteRenderer spriteRenderer;
     Animator animator;
 
     [SerializeField] float _fireRate = 1.0f;
@@ -28,9 +28,12 @@ public class Player : MonoBehaviour {
 
     [SerializeField] public GameObject projectil;
 
+    public Kamikaze kamikaze;
+
+
     void Start(){
         rigidBody = GetComponent<Rigidbody2D>();
-        renderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
 
@@ -88,7 +91,6 @@ public class Player : MonoBehaviour {
         }
         lastHitPoints = currentHitPoints;
     }
-
 
     void Death(){
         if(currentHitPoints <= 0){

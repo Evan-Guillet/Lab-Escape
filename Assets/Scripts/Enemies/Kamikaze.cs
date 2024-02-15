@@ -13,7 +13,7 @@ public class Kamikaze : MonoBehaviour {
     int currentWaypoint = -1;
 
     public GameObject PerceivedTarget = null;
-    SpriteRenderer renderer;
+    SpriteRenderer spriteRenderer;
     Animator animator;
     float time = 0.0f;
     bool notYetExploded = true;
@@ -28,7 +28,7 @@ public class Kamikaze : MonoBehaviour {
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
-        renderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
 
@@ -44,19 +44,15 @@ public class Kamikaze : MonoBehaviour {
 
     void FlipSpriteToX(){
         if(agent.velocity.x < 0){
-            renderer.flipX = true;
+            spriteRenderer.flipX = true;
 
         } else if(agent.velocity.x > 0){
-            renderer.flipX = false;
+            spriteRenderer.flipX = false;
         }
     }
 
     void Animations(){
         animator.SetBool("IsRunning", agent.velocity.x != 0);
-
-        if(Input.GetKeyDown(KeyCode.F3)){
-            animator.SetTrigger("Death");
-        }
     }
 
     [Task]
@@ -101,8 +97,8 @@ public class Kamikaze : MonoBehaviour {
             return;
 
         } else if(time >= 2.0f){
-            if(PerceivedTarget != null && notYetExploded){
-                Player player = PerceivedTarget.GetComponent<Player>();
+            if(notYetExploded){
+                Player player = PerceivedTarget.GetComponent<Player>(); // Bug is here
                 player.currentHitPoints -= damage;
                 Debug.Log(player.currentHitPoints);
                 audioSource.PlayOneShot(explode);

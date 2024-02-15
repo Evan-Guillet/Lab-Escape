@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MainCamera : MonoBehaviour {
     public float amplitude = 0.2f;
@@ -28,8 +29,8 @@ public class MainCamera : MonoBehaviour {
         
         while(elapsedTime < 0.15f){ // Durée du tremblement
             // Calcul de tremblement en X et en Y
-            float shakeX = Mathf.Cos(Time.time * speed * 1.5f) * amplitude;
-            float shakeY = Mathf.Sin(Time.time * speed * 1.5f) * amplitude;
+            float shakeX = Mathf.Cos(Time.time * speed) * amplitude;
+            float shakeY = Mathf.Sin(Time.time * speed) * amplitude;
             
             // Appliquer le tremblement
             transform.localPosition = new Vector3(shakeX, shakeY, initialZPosition);
