@@ -2110,7 +2110,7 @@ GameObject:
   - component: {fileID: 1188633536}
   - component: {fileID: 1188633535}
   m_Layer: 0
-  m_Name: wallInFront
+  m_Name: wallsInFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
