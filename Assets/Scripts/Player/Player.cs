@@ -17,6 +17,7 @@ public class Player : MonoBehaviour {
     public float maxHitPoints = 100;
     public float currentHitPoints = 100;
     public float lastHitPoints = 100;
+     public float lastHitPointds = 100;
     public event Action OnHit;
     float time = 0.0f;
     Rigidbody2D rigidBody;
@@ -27,6 +28,10 @@ public class Player : MonoBehaviour {
     float _cycleTime = 0.0f;
 
     [SerializeField] public GameObject projectil;
+
+    //pause variables
+    float inputPause = 0f;
+    public GameObject canvas;
 
     void Start(){
         rigidBody = GetComponent<Rigidbody2D>();
@@ -108,4 +113,12 @@ public class Player : MonoBehaviour {
             currentHitPoints -= 1;
         }
     }*/
+
+    void OnPause(InputValue value){
+        inputPause = value.Get<float>();
+        if (inputPause != 0f){
+            Time.timeScale = 0f;
+            canvas.SetActive(true);
+        }
+    }
 }

@@ -208,8 +208,10 @@ MonoBehaviour:
   maxHitPoints: 100
   currentHitPoints: 100
   lastHitPoints: 100
+  lastHitPointds: 100
   _fireRate: 1
   projectil: {fileID: 2055602118348576037, guid: 21675e18c65c3294a8f5ddd0c317b1f6, type: 3}
+  canvas: {fileID: 0}
 --- !u!95 &2413185756578730231
 Animator:
   serializedVersion: 5
