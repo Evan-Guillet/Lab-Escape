@@ -4994,7 +4994,7 @@ GameObject:
   - component: {fileID: 967541284}
   m_Layer: 0
   m_Name: wallsCollider
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9075,7 +9075,7 @@ GameObject:
   - component: {fileID: 2094273706}
   m_Layer: 0
   m_Name: propsCollider
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9818,6 +9818,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1489004639321623472, guid: 60fdce980ba88ac4a986f345f1d7a3f7, type: 3}
+      propertyPath: m_Size.x
+      value: 1.9798623
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489004639321623472, guid: 60fdce980ba88ac4a986f345f1d7a3f7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489004639321623472, guid: 60fdce980ba88ac4a986f345f1d7a3f7, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.48993117
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489004639321623472, guid: 60fdce980ba88ac4a986f345f1d7a3f7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777796724775564984, guid: 60fdce980ba88ac4a986f345f1d7a3f7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4101138989273524145, guid: 60fdce980ba88ac4a986f345f1d7a3f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.5091
@@ -9862,7 +9882,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6948819437133552406, guid: 60fdce980ba88ac4a986f345f1d7a3f7, type: 3}
+      propertyPath: m_Size.x
+      value: 1.9651299
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948819437133552406, guid: 60fdce980ba88ac4a986f345f1d7a3f7, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6948819437133552406, guid: 60fdce980ba88ac4a986f345f1d7a3f7, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.51442695
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6948819437133552406, guid: 60fdce980ba88ac4a986f345f1d7a3f7, type: 3}
+    - {fileID: 6282257790074872368, guid: 60fdce980ba88ac4a986f345f1d7a3f7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
