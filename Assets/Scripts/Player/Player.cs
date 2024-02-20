@@ -43,6 +43,10 @@ public class Player : MonoBehaviour {
         PlayerShoot();
         IsHit();
         Death();
+        if(currentHitPoints <= 0){
+            moveDirectionX = 0;
+            moveDirectionY = 0;
+        }
     }
 
     void OnMoveX(InputValue value){
@@ -95,7 +99,7 @@ public class Player : MonoBehaviour {
     void Death(){
         if(currentHitPoints <= 0){
             if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
-                animator.SetTrigger("Death");
+                animator.SetBool("IsDead",true);
 
             if(time >= 1.3f)
                 Destroy(gameObject);
@@ -103,11 +107,4 @@ public class Player : MonoBehaviour {
             time += Time.deltaTime;
         }
     }
-
-    /*
-    void OnCollisionEnter2D(Collision2D collision){
-        if(collision.gameObject.tag == "projectileEnnemie"){
-            currentHitPoints -= 1;
-        }
-    }*/
 }

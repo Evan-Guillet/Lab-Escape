@@ -17,7 +17,7 @@ public class Kamikaze : MonoBehaviour {
     Animator animator;
     float time = 0.0f;
     bool notYetExploded = true;
-    float damage = 35;
+    float damage = 105;
 
     public AudioSource audioSource;
     public AudioClip explode;
