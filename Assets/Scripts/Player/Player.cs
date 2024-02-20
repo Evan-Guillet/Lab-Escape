@@ -21,7 +21,7 @@ public class Player : MonoBehaviour {
     public event Action OnHit;
     float time = 0.0f;
     Rigidbody2D rigidBody;
-    SpriteRenderer renderer;
+    SpriteRenderer spriteRenderer;
     Animator animator;
 
     [SerializeField] float _fireRate = 1.0f;
@@ -29,13 +29,17 @@ public class Player : MonoBehaviour {
 
     [SerializeField] public GameObject projectil;
 
+
     //pause variables
     float inputPause = 0f;
     public GameObject canvas;
 
+    public Kamikaze kamikaze;
+
+
     void Start(){
         rigidBody = GetComponent<Rigidbody2D>();
-        renderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
 
@@ -45,6 +49,10 @@ public class Player : MonoBehaviour {
         PlayerShoot();
         IsHit();
         Death();
+        if(currentHitPoints <= 0){
+            moveDirectionX = 0;
+            moveDirectionY = 0;
+        }
     }
 
     void OnMoveX(InputValue value){
@@ -61,14 +69,6 @@ public class Player : MonoBehaviour {
         moveDirectionY = value.Get<float>();
         animator.SetBool("IsWalking", moveDirectionY != 0 || moveDirectionX != 0);
     }
-
-    /*
-    void OnInteract(InputValue value){
-        isDead = value.Get<float>();
-        animator.SetBool("IsDead", currentHitPoints <= 0);
-        Destroy(gameObject, 1.3f);
-    }
-    */
 
     void PlayerShoot(){
         animator.SetBool("IsShooting",false);
@@ -94,11 +94,10 @@ public class Player : MonoBehaviour {
         lastHitPoints = currentHitPoints;
     }
 
-
     void Death(){
         if(currentHitPoints <= 0){
             if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
-                animator.SetTrigger("Death");
+                animator.SetBool("IsDead",true);
 
             if(time >= 1.3f)
                 Destroy(gameObject);
@@ -106,13 +105,6 @@ public class Player : MonoBehaviour {
             time += Time.deltaTime;
         }
     }
-
-    /*
-    void OnCollisionEnter2D(Collision2D collision){
-        if(collision.gameObject.tag == "projectileEnnemie"){
-            currentHitPoints -= 1;
-        }
-    }*/
 
     void OnPause(InputValue value){
         inputPause = value.Get<float>();
