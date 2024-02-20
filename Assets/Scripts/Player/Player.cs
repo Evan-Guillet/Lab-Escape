@@ -17,6 +17,7 @@ public class Player : MonoBehaviour {
     public float maxHitPoints = 100;
     public float currentHitPoints = 100;
     public float lastHitPoints = 100;
+     public float lastHitPointds = 100;
     public event Action OnHit;
     float time = 0.0f;
     Rigidbody2D rigidBody;
@@ -27,6 +28,11 @@ public class Player : MonoBehaviour {
     float _cycleTime = 0.0f;
 
     [SerializeField] public GameObject projectil;
+
+
+    //pause variables
+    float inputPause = 0f;
+    public GameObject canvas;
 
     public Kamikaze kamikaze;
 
@@ -64,14 +70,6 @@ public class Player : MonoBehaviour {
         animator.SetBool("IsWalking", moveDirectionY != 0 || moveDirectionX != 0);
     }
 
-    /*
-    void OnInteract(InputValue value){
-        isDead = value.Get<float>();
-        animator.SetBool("IsDead", currentHitPoints <= 0);
-        Destroy(gameObject, 1.3f);
-    }
-    */
-
     void PlayerShoot(){
         animator.SetBool("IsShooting",false);
         if(Input.GetKeyDown(KeyCode.Semicolon)){
@@ -105,6 +103,14 @@ public class Player : MonoBehaviour {
                 Destroy(gameObject);
 
             time += Time.deltaTime;
+        }
+    }
+
+    void OnPause(InputValue value){
+        inputPause = value.Get<float>();
+        if (inputPause != 0f){
+            Time.timeScale = 0f;
+            canvas.SetActive(true);
         }
     }
 }
