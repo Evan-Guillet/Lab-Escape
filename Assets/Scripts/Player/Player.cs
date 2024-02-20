@@ -5,19 +5,17 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
     public float walkSpeed = 20; // unité unity par second
-    public float jumpForce = 50;
     float moveDirectionX = 0;
     float moveDirectionY = 0;
-    float isShooting = 0;
-    float isDead = 0;
-    public float maxHitPoints = 100;
-    public float currentHitPoints = 100;
-    public float lastHitPoints = 100;
-     public float lastHitPointds = 100;
+    public float maxHitPoints = 10;
+    public float currentHitPoints = 10;
+    public float lastHitPoints = 10;
+    public float lastHitPointds = 10;
     public event Action OnHit;
     float time = 0.0f;
     Rigidbody2D rigidBody;
@@ -35,7 +33,16 @@ public class Player : MonoBehaviour {
     public GameObject canvas;
 
     public Kamikaze kamikaze;
-
+    public Image CanvasImage;
+    public Sprite image9;
+    public Sprite image8;
+    public Sprite image7;
+    public Sprite image6;
+    public Sprite image5;
+    public Sprite image4;
+    public Sprite image3;
+    public Sprite image2;
+    public Sprite image1;
 
     void Start(){
         rigidBody = GetComponent<Rigidbody2D>();
@@ -90,6 +97,33 @@ public class Player : MonoBehaviour {
     void IsHit(){
         if(currentHitPoints < lastHitPoints){
             OnHit?.Invoke();
+            if(currentHitPoints == 9){
+                CanvasImage.sprite = image9;
+            } 
+            if(currentHitPoints == 8){
+                CanvasImage.sprite = image8;
+            } 
+            if(currentHitPoints == 7){
+                CanvasImage.sprite = image7;
+            } 
+            if(currentHitPoints == 6){
+                CanvasImage.sprite = image6;
+            } 
+            if(currentHitPoints == 5){
+                CanvasImage.sprite = image5;
+            } 
+            if(currentHitPoints == 4){
+                CanvasImage.sprite = image4;
+            } 
+            if(currentHitPoints == 3){
+                CanvasImage.sprite = image3;
+            } 
+            if(currentHitPoints == 2){
+                CanvasImage.sprite = image2;
+            }   
+            if(currentHitPoints == 1){
+                CanvasImage.sprite = image1;
+            }       
         }
         lastHitPoints = currentHitPoints;
     }
