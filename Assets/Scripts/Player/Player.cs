@@ -88,10 +88,8 @@ public class Player : MonoBehaviour {
             if(Time.time>_cycleTime){
                 animator.SetBool("IsShooting", true);
                 _cycleTime = Time.time + _fireRate;
-                print(projectil);
                 if (projectil != null){
                     Instantiate(projectil,new Vector3(transform.position.x,transform.position.y-0.2f,transform.position.z), transform.rotation);
-
                 } else {
                     Debug.LogError("the bullet is NULL");
                 }
