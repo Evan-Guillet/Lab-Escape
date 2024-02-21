@@ -143,8 +143,14 @@ public class Player : MonoBehaviour {
     void OnPause(InputValue value){
         inputPause = value.Get<float>();
         if (inputPause != 0f){
-            Time.timeScale = 0f;
-            canvas.SetActive(true);
+            if (Time.timeScale != 0f){
+                Time.timeScale = 0f;
+                canvas.SetActive(true);
+            } else {
+                Time.timeScale = 1f;
+                canvas.SetActive(false);
+            }
+            
         }
     }
 }
