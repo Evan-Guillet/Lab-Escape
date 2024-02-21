@@ -17,7 +17,8 @@ public class Kamikaze : MonoBehaviour {
     Animator animator;
     float time = 0.0f;
     bool notYetExploded = true;
-    float damage = 105;
+    public float damage = 105;
+    public float hp = 2;
 
     public AudioSource audioSource;
     public AudioClip explode;
@@ -111,5 +112,17 @@ public class Kamikaze : MonoBehaviour {
             animator.SetTrigger("Death");
 
         time += Time.deltaTime;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision){
+
+        if(collision.gameObject.tag == "projectile")
+        {
+            hp-=1;
+            print("damage");
+            if (hp <= 0){
+                Destroy(gameObject);
+            }
+        }
     }
 }
