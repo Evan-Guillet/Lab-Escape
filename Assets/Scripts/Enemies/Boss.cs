@@ -75,10 +75,10 @@ public class Boss : MonoBehaviour {
         
         float range = Mathf.Abs(agent.remainingDistance);
 
-        if(agent.velocity.x == 0){
+        if(Mathf.Abs(agent.velocity.x) == 0 || Mathf.Abs(agent.velocity.y) == 0){
             animator.SetFloat("Idle&Shoot_2", range);
 
-        } else if(agent.velocity.x != 0){
+        } else if(Mathf.Abs(agent.velocity.x) != 0 || Mathf.Abs(agent.velocity.y) != 0){
             animator.SetFloat("Run&Shoot_2", range);
         }
 
