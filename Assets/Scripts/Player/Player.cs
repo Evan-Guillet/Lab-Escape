@@ -27,6 +27,11 @@ public class Player : MonoBehaviour {
 
     [SerializeField] public GameObject projectil;
 
+    //keys variables
+    public bool doorLev1_1 = false;
+    public bool doorLev3_3 = false;
+    public bool doorLev3_1 = false;
+    public bool doorLev3_2 = false;
 
     //pause variables
     float inputPause = 0f;
