@@ -11,6 +11,11 @@ public class Boss : MonoBehaviour {
     SpriteRenderer spriteRenderer;
     Animator animator;
     public GameObject PerceivedTarget = null;
+
+    public float maxHitPoints = 100;
+    public float currentHitPoints = 100;
+    public float lastHitPoints = 100;
+    float timer = 0.0f;
     
     void Start(){
         agent = GetComponent<NavMeshAgent>();
@@ -22,18 +27,6 @@ public class Boss : MonoBehaviour {
     }
 
     void Update(){
-        /*
-        if(Input.GetKeyDown(KeyCode.F1)){
-            animator.SetTrigger("Idle");
-
-        } else if(Input.GetKeyDown(KeyCode.F2)){
-            animator.SetBool("Run", true);
-
-        } else if(Input.GetKeyDown(KeyCode.F3)){
-            animator.SetTrigger("Death");
-
-        }
-        */
         FlipSpriteToX();
     }
 
@@ -52,11 +45,72 @@ public class Boss : MonoBehaviour {
             Task.current.Fail();
             return;
         }
-        animator.SetBool("IsRunning", agent.velocity.x != 0 || agent.velocity.y != 0);
+        
+        animator.SetBool("IsRunning", Mathf.Abs(agent.velocity.x) != 0 || Mathf.Abs(agent.velocity.y) != 0);
+
         agent.SetDestination(PerceivedTarget.transform.position);
-        if(agent.remainingDistance <= 4){
+        if(agent.remainingDistance <= 2){
             Task.current.Fail();
             return;
         }
+    }
+
+/*
+    [Task]
+    void LaserAttack(){
+        if(PerceivedTarget == null){
+            Task.current.Fail();
+            return;
+        }
+
+    }
+    */
+
+    [Task]
+    void FlamethrowerAttack(){
+        if(PerceivedTarget == null){
+            Task.current.Fail();
+            return;
+        }
+        
+        float range = Mathf.Abs(agent.remainingDistance);
+
+        if(agent.velocity.x == 0){
+            animator.SetFloat("Idle&Shoot_2", range);
+
+        } else if(agent.velocity.x != 0){
+            animator.SetFloat("Run&Shoot_2", range);
+        }
+
+        if(agent.remainingDistance >= 1.5){
+            //Debug.Log("range > 1.5f: " + range);
+            Task.current.Fail();
+            return;
+        }
+    }
+/*
+    [Task]
+    void RocketthrowerAttack(){
+        if(PerceivedTarget == null){
+            Task.current.Fail();
+            return;
+        }
+        
+    }
+*/
+    [Task]
+    void Death(){
+        if(currentHitPoints > 0){
+            Task.current.Fail();
+            return;
+        }
+        if(timer >= 1.5f){
+            Destroy(gameObject);
+            return;
+
+        }
+        animator.SetBool("Death", currentHitPoints <= 0);
+
+        timer += Time.deltaTime;
     }
 }

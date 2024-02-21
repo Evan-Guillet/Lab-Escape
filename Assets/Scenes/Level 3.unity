@@ -270,7 +270,7 @@ Transform:
   m_GameObject: {fileID: 555972257}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34, y: 14, z: -10}
+  m_LocalPosition: {x: 35, y: 13, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -379,11 +379,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1965372536253111418, guid: 6b3dab256938c9f43873caaf15e9d03b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 1965372536253111418, guid: 6b3dab256938c9f43873caaf15e9d03b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1965372536253111418, guid: 6b3dab256938c9f43873caaf15e9d03b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -415,6 +415,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1965372536253111418, guid: 6b3dab256938c9f43873caaf15e9d03b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317220162373364742, guid: 6b3dab256938c9f43873caaf15e9d03b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.12018776
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317220162373364742, guid: 6b3dab256938c9f43873caaf15e9d03b, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.000061035156
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317220162373364742, guid: 6b3dab256938c9f43873caaf15e9d03b, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.045
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317220162373364742, guid: 6b3dab256938c9f43873caaf15e9d03b, type: 3}
+      propertyPath: m_AutoTiling
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7199280743087442031, guid: 6b3dab256938c9f43873caaf15e9d03b, type: 3}
@@ -4365,6 +4381,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PerceivedTarget: {fileID: 0}
+  maxHitPoints: 100
+  currentHitPoints: 100
+  lastHitPoints: 100
 --- !u!114 &1241272177
 MonoBehaviour:
   m_ObjectHideFlags: 0
