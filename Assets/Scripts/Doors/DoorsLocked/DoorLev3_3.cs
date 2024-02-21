@@ -6,26 +6,9 @@ public class DoorLev3_3 : MonoBehaviour
     public BoxCollider2D collider;
     public string openTrigger = "Player";
     public Player player;
-    public bool key = false;
-
-    private void Start()
-    {
-        if (player != null)
-        {
-            if (player.doorLev3_3)
-            {
-                key = true;
-            }
-        }
-        else
-        {
-            Debug.LogError("Player GameObject non assigné à DoorLev3_3.cs");
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && key)
+        if (collision.CompareTag("Player") && player.doorLev3_3 == true)
         {
             collider.isTrigger = true;
             doorAnimator.SetTrigger(openTrigger);
