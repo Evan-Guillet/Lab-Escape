@@ -304,6 +304,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kamikaze
       objectReference: {fileID: 0}
+    - target: {fileID: 5391339651932170828, guid: 4c9ab2c7eff317c4ca5927427107e053, type: 3}
+      propertyPath: m_TagString
+      value: Kamikaze
+      objectReference: {fileID: 0}
     - target: {fileID: 9179816532293205030, guid: 4c9ab2c7eff317c4ca5927427107e053, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.25
@@ -352,7 +356,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5561637510242725388, guid: 4c9ab2c7eff317c4ca5927427107e053, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -8913,7 +8918,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8544811774493764096, guid: fe7f7c641dc008f4f947f143840a9de5, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Boss
       objectReference: {fileID: 0}
     - target: {fileID: 8801068075447742328, guid: fe7f7c641dc008f4f947f143840a9de5, type: 3}
       propertyPath: m_Size.x
