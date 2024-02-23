@@ -52,7 +52,7 @@ public class Kamikaze : MonoBehaviour {
     }
 
     void Animations(){
-        animator.SetBool("IsRunning", agent.velocity.x != 0);
+        animator.SetBool("IsRunning", Mathf.Abs(agent.velocity.x) != 0 || Mathf.Abs(agent.velocity.y) != 0);
     }
 
     [Task]

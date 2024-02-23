@@ -1,5 +1,4 @@
 tree "Root"
     fallback
         PursueTarget
-        FlamethrowerAttack
         Death

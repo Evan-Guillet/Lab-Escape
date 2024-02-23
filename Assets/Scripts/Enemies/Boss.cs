@@ -45,9 +45,10 @@ public class Boss : MonoBehaviour {
             Task.current.Fail();
             return;
         }
-        
-        animator.SetBool("IsRunning", Mathf.Abs(agent.velocity.x) != 0 || Mathf.Abs(agent.velocity.y) != 0);
 
+        animator.SetBool("IsRunning", Mathf.Abs(agent.remainingDistance) > 0.0002f);
+        //Debug.Log("Mathf.Abs(agent.remainingDistance): " + Mathf.Abs(agent.remainingDistance));
+        
         agent.SetDestination(PerceivedTarget.transform.position);
         if(agent.remainingDistance <= 2){
             Task.current.Fail();
@@ -55,7 +56,7 @@ public class Boss : MonoBehaviour {
         }
     }
 
-/*
+    /*
     [Task]
     void LaserAttack(){
         if(PerceivedTarget == null){
@@ -65,7 +66,7 @@ public class Boss : MonoBehaviour {
 
     }
     */
-
+    /*
     [Task]
     void FlamethrowerAttack(){
         if(PerceivedTarget == null){
@@ -82,13 +83,17 @@ public class Boss : MonoBehaviour {
             animator.SetFloat("Run&Shoot_2", range);
         }
 
+
         if(agent.remainingDistance >= 1.5){
-            //Debug.Log("range > 1.5f: " + range);
             Task.current.Fail();
             return;
         }
+        
     }
-/*
+    */
+    
+
+
     [Task]
     void RocketthrowerAttack(){
         if(PerceivedTarget == null){
@@ -97,7 +102,7 @@ public class Boss : MonoBehaviour {
         }
         
     }
-*/
+
     [Task]
     void Death(){
         if(currentHitPoints > 0){
