@@ -173,10 +173,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4093331044795979261}
+  - component: {fileID: 7996234477201229635}
+  - component: {fileID: 5966819749828631474}
   - component: {fileID: 379778864290562783}
   - component: {fileID: 2364231594379149954}
   - component: {fileID: 8153481520607835071}
   - component: {fileID: 3287164684270198910}
+  - component: {fileID: 6625356793329431643}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -201,6 +204,45 @@ Transform:
   - {fileID: 2059771838073638536}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7996234477201229635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8544811774493764096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e43e7170fb45b4b81dcd16d0ff55d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 4900000, guid: be76ee8fa5b00c445826b7cb51872c9a, type: 3}
+  autoReset: 1
+  tickOn: 0
+  sourceInfos:
+  - isFoldout: 1
+    breakPoints: 
+    breakPointStatuses: 
+    collapsedLines: 
+    btScript: 
+--- !u!114 &5966819749828631474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8544811774493764096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d51223cf05e3a043824eb7490299d7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PerceivedTarget: {fileID: 0}
+  maxHitPoints: 100
+  currentHitPoints: 100
+  lastHitPoints: 100
+  hitPoints: 10
 --- !u!195 &379778864290562783
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -220,7 +262,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1.47
-  m_BaseOffset: 1
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &2364231594379149954
@@ -308,3 +350,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &6625356793329431643
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8544811774493764096}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.5424142, y: 0.44379744}
+  - {x: 0.20147012, y: 0.5176469}
+  - {x: -0.054101862, y: 0.5462673}
+  - {x: -0.44679186, y: 0.57454306}
+  - {x: -0.70287883, y: 0.85989267}
+  - {x: -0.60393196, y: 1.208802}
+  - {x: -0.5400205, y: 1.3185596}
+  - {x: -0.2818151, y: 1.3723043}
+  - {x: -0.06729435, y: 1.2221636}
+  - {x: 0.264096, y: 1.2544963}
+  - {x: 0.8527521, y: 0.69117427}
+  - {x: 0.8961188, y: 0.45679355}
+  - {x: 0.51784647, y: 0.45076436}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

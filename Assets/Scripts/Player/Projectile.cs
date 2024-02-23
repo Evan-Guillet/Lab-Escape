@@ -20,12 +20,10 @@ public class Projectile : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision){
-        if(collision.gameObject.tag == "wall")
-        {
+        if(collision.gameObject.tag == "wall"){
             Destroy(gameObject);
         }
-        if(collision.gameObject.tag == "Enemy")
-        {
+        if(collision.gameObject.tag == "Boss" || collision.gameObject.tag == "Kamikaze"){
             Destroy(gameObject);
         }
     }

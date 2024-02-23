@@ -16,6 +16,7 @@ public class Boss : MonoBehaviour {
     public float currentHitPoints = 100;
     public float lastHitPoints = 100;
     float timer = 0.0f;
+    public float hitPoints = 10;
     
     void Start(){
         agent = GetComponent<NavMeshAgent>();
@@ -117,5 +118,15 @@ public class Boss : MonoBehaviour {
         animator.SetBool("Death", currentHitPoints <= 0);
 
         timer += Time.deltaTime;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision){
+
+        if(collision.gameObject.tag == "projectile"){
+            hitPoints -= 1;
+            if(hitPoints <= 0){
+                Destroy(gameObject);
+            }
+        }
     }
 }
