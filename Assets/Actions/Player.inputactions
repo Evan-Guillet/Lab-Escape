@@ -1,5 +1,5 @@
 {
-    "name": "New Controls",
+    "name": "Player",
     "maps": [
         {
             "name": "game",
@@ -36,6 +36,15 @@
                     "name": "interact",
                     "type": "Value",
                     "id": "21e31ab2-2d14-41a6-b1d9-49f357f3cf62",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "pause",
+                    "type": "Value",
+                    "id": "b38cbc93-cfbb-420f-95bc-4e72991a1e0d",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
@@ -128,6 +137,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "337badf0-bcef-42ce-9bbf-f2ff1f9f54cf",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

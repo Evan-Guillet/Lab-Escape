@@ -20,8 +20,7 @@ public class Projectile : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision){
-        print("test");
-        if(collision.gameObject.tag == "Wall")
+        if(collision.gameObject.tag == "wall")
         {
             Destroy(gameObject);
         }
