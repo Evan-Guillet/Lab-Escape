@@ -12,11 +12,9 @@ public class Boss : MonoBehaviour {
     Animator animator;
     public GameObject PerceivedTarget = null;
 
-    public float maxHitPoints = 100;
-    public float currentHitPoints = 100;
-    public float lastHitPoints = 100;
     float timer = 0.0f;
     public float hitPoints = 10;
+    Vector3 deathPosition;
     
     void Start(){
         agent = GetComponent<NavMeshAgent>();
@@ -46,11 +44,16 @@ public class Boss : MonoBehaviour {
             Task.current.Fail();
             return;
         }
-
+        if(hitPoints <= 0){
+            deathPosition = transform.position;
+            Task.current.Fail();
+            return;
+        }
+        
+        agent.SetDestination(PerceivedTarget.transform.position);
         animator.SetBool("IsRunning", Mathf.Abs(agent.remainingDistance) > 0.0002f);
         //Debug.Log("Mathf.Abs(agent.remainingDistance): " + Mathf.Abs(agent.remainingDistance));
         
-        agent.SetDestination(PerceivedTarget.transform.position);
         if(agent.remainingDistance <= 2){
             Task.current.Fail();
             return;
@@ -106,27 +109,26 @@ public class Boss : MonoBehaviour {
 
     [Task]
     void Death(){
-        if(currentHitPoints > 0){
+        if(hitPoints > 0){
             Task.current.Fail();
             return;
         }
         if(timer >= 1.5f){
             Destroy(gameObject);
             return;
-
         }
-        animator.SetBool("Death", currentHitPoints <= 0);
-
+        transform.position = deathPosition;
+        if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+            animator.SetTrigger("Death");
+        
         timer += Time.deltaTime;
     }
 
     void OnCollisionEnter2D(Collision2D collision){
 
         if(collision.gameObject.tag == "projectile"){
-            hitPoints -= 1;
-            if(hitPoints <= 0){
-                Destroy(gameObject);
-            }
+            hitPoints -= 10;
+            Debug.Log(hitPoints);
         }
     }
 }
