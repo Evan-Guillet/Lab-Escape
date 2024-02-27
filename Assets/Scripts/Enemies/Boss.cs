@@ -15,6 +15,11 @@ public class Boss : MonoBehaviour {
     float timer = 0.0f;
     public float hitPoints = 10;
     Vector3 deathPosition;
+
+    [SerializeField] public GameObject projectil;
+
+    [SerializeField] float _fireRate = 1.0f;
+    float _cycleTime = 0.0f;
     
     void Start(){
         agent = GetComponent<NavMeshAgent>();
@@ -32,9 +37,11 @@ public class Boss : MonoBehaviour {
     void FlipSpriteToX(){
         if(agent.velocity.x < 0){
             spriteRenderer.flipX = true;
+            transform.rotation = new Quaternion(0,180,0,0);
 
         } else if(agent.velocity.x > 0){
             spriteRenderer.flipX = false;
+            transform.rotation = new Quaternion(0,0,0,0);
         }
     }
 
@@ -54,7 +61,7 @@ public class Boss : MonoBehaviour {
         animator.SetBool("IsRunning", Mathf.Abs(agent.remainingDistance) > 0.0002f);
         //Debug.Log("Mathf.Abs(agent.remainingDistance): " + Mathf.Abs(agent.remainingDistance));
         
-        if(agent.remainingDistance <= 2){
+        if(agent.remainingDistance <= 4){
             Task.current.Fail();
             return;
         }
@@ -104,7 +111,17 @@ public class Boss : MonoBehaviour {
             Task.current.Fail();
             return;
         }
-        
+        if(Time.time>_cycleTime){
+            _cycleTime = Time.time + _fireRate;
+            if(PerceivedTarget.transform.position.y >= transform.position.y + 0.25f || PerceivedTarget.transform.position.y >= transform.position.y + 0.75f){
+                Instantiate(projectil, new Vector3(transform.position.x+1f,transform.position.y+1f,transform.position.z), transform.rotation);
+
+            } else {
+                Debug.LogError("The rocket is NULL");
+                Task.current.Fail();
+                return;
+            }
+        }
     }
 
     [Task]

@@ -240,10 +240,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PerceivedTarget: {fileID: 0}
-  maxHitPoints: 100
-  currentHitPoints: 100
-  lastHitPoints: 100
   hitPoints: 10
+  projectil: {fileID: 5838376526697436242, guid: 6eb1adf2c2ffb3a408bf6f41ece5a9e2, type: 3}
 --- !u!195 &379778864290562783
 NavMeshAgent:
   m_ObjectHideFlags: 0
