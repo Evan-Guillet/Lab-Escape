@@ -119,7 +119,6 @@ public class Kamikaze : MonoBehaviour {
         if(collision.gameObject.tag == "projectile")
         {
             hp-=1;
-            print("damage");
             if (hp <= 0){
                 Destroy(gameObject);
             }

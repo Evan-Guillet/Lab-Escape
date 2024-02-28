@@ -27,6 +27,11 @@ public class Player : MonoBehaviour {
 
     [SerializeField] public GameObject projectil;
 
+    //keys variables
+    public bool doorLev1_1 = false;
+    public bool doorLev3_3 = false;
+    public bool doorLev3_1 = false;
+    public bool doorLev3_2 = false;
 
     //pause variables
     float inputPause = 0f;
@@ -83,10 +88,8 @@ public class Player : MonoBehaviour {
             if(Time.time>_cycleTime){
                 animator.SetBool("IsShooting", true);
                 _cycleTime = Time.time + _fireRate;
-                print(projectil);
                 if (projectil != null){
                     Instantiate(projectil,new Vector3(transform.position.x,transform.position.y-0.2f,transform.position.z), transform.rotation);
-
                 } else {
                     Debug.LogError("the bullet is NULL");
                 }
