@@ -164,8 +164,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   PerceivedTarget: {fileID: 0}
-  damage: 105
-  hp: 2
+  damage: 2
+  hitPoints: 2
   audioSource: {fileID: 8062220751265581356}
   explode: {fileID: 8300000, guid: e6d8328b4fe82d64a8ac2cbe0b31eb20, type: 3}
 --- !u!195 &7898816520831298858
