@@ -6,6 +6,7 @@ public class DetectionZone : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider){
         if(collider.tag == "Player"){
+            print("true");
             if(transform.parent.tag == "Boss")
                 transform.parent.GetComponent<Boss>().PerceivedTarget = collider.gameObject;
 

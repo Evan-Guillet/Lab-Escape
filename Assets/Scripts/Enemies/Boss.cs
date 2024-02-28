@@ -36,11 +36,11 @@ public class Boss : MonoBehaviour {
 
     void FlipSpriteToX(){
         if(agent.velocity.x < 0){
-            spriteRenderer.flipX = true;
+            // spriteRenderer.flipX = true;
             transform.rotation = new Quaternion(0,180,0,0);
 
         } else if(agent.velocity.x > 0){
-            spriteRenderer.flipX = false;
+            // spriteRenderer.flipX = false;
             transform.rotation = new Quaternion(0,0,0,0);
         }
     }
@@ -56,12 +56,12 @@ public class Boss : MonoBehaviour {
             Task.current.Fail();
             return;
         }
-        
+        RocketthrowerAttack();
         agent.SetDestination(PerceivedTarget.transform.position);
         animator.SetBool("IsRunning", Mathf.Abs(agent.remainingDistance) > 0.0002f);
         //Debug.Log("Mathf.Abs(agent.remainingDistance): " + Mathf.Abs(agent.remainingDistance));
         
-        if(agent.remainingDistance <= 4){
+        if(agent.remainingDistance <= 1f){
             Task.current.Fail();
             return;
         }
@@ -113,11 +113,14 @@ public class Boss : MonoBehaviour {
         }
         if(Time.time>_cycleTime){
             _cycleTime = Time.time + _fireRate;
-            if(PerceivedTarget.transform.position.y >= transform.position.y + 0.25f || PerceivedTarget.transform.position.y >= transform.position.y + 0.75f){
-                Instantiate(projectil, new Vector3(transform.position.x+1f,transform.position.y+1f,transform.position.z), transform.rotation);
-
+            if(PerceivedTarget.transform.position.y >= transform.position.y && PerceivedTarget.transform.position.y <= transform.position.y + 10f){
+                if(agent.velocity.x > 0 && PerceivedTarget.transform.position.x >= transform.position.x){
+                    Instantiate(projectil, new Vector3(transform.position.x+2f,transform.position.y+1f,transform.position.z), transform.rotation);
+                } 
+                if(agent.velocity.x < 0 && PerceivedTarget.transform.position.x <= transform.position.x){
+                    Instantiate(projectil, new Vector3(transform.position.x-2f,transform.position.y+1f,transform.position.z), transform.rotation);
+                } 
             } else {
-                Debug.LogError("The rocket is NULL");
                 Task.current.Fail();
                 return;
             }

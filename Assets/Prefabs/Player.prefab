@@ -121,10 +121,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00073810667, y: -0.114814326}
+  m_Offset: {x: -0.00073810667, y: 0.045}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
@@ -204,14 +204,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 4
-  jumpForce: 50
   maxHitPoints: 100
   currentHitPoints: 100
   lastHitPoints: 100
   lastHitPointds: 100
   _fireRate: 1
   projectil: {fileID: 2055602118348576037, guid: 21675e18c65c3294a8f5ddd0c317b1f6, type: 3}
+  doorLev1_1: 0
+  doorLev3_3: 0
+  doorLev3_1: 0
+  doorLev3_2: 0
   canvas: {fileID: 0}
+  kamikaze: {fileID: 0}
+  CanvasImage: {fileID: 0}
+  image9: {fileID: 0}
+  image8: {fileID: 0}
+  image7: {fileID: 0}
+  image6: {fileID: 0}
+  image5: {fileID: 0}
+  image4: {fileID: 0}
+  image3: {fileID: 0}
+  image2: {fileID: 0}
+  image1: {fileID: 0}
 --- !u!95 &2413185756578730231
 Animator:
   serializedVersion: 5
