@@ -17,8 +17,8 @@ public class Kamikaze : MonoBehaviour {
     Animator animator;
     float time = 0.0f;
     bool notYetExploded = true;
-    public float damage = 105;
-    public float hp = 2;
+    public float damage = 35;
+    public float hitPoints = 2;
 
     public AudioSource audioSource;
     public AudioClip explode;
@@ -53,7 +53,7 @@ public class Kamikaze : MonoBehaviour {
     }
 
     void Animations(){
-        animator.SetBool("IsRunning", agent.velocity.x != 0);
+        animator.SetBool("IsRunning", Mathf.Abs(agent.velocity.x) != 0 || Mathf.Abs(agent.velocity.y) != 0);
     }
 
     [Task]
@@ -116,10 +116,9 @@ public class Kamikaze : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision){
 
-        if(collision.gameObject.tag == "projectile")
-        {
-            hp-=1;
-            if (hp <= 0){
+        if(collision.gameObject.tag == "projectile"){
+            hitPoints -= 1;
+            if(hitPoints <= 0){
                 Destroy(gameObject);
             }
         }

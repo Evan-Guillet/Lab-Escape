@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 7040608266738360491}
   m_Layer: 0
   m_Name: Kamikaze
-  m_TagString: Untagged
+  m_TagString: Kamikaze
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5, y: 3, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6576535209130721692}
@@ -425,7 +425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6576535209130721692}
-  - component: {fileID: 6357061499041225765}
+  - component: {fileID: 1070893803909577407}
   - component: {fileID: 7948561001587474602}
   m_Layer: 0
   m_Name: Detection
@@ -449,7 +449,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9179816532293205030}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6357061499041225765
+--- !u!114 &1070893803909577407
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

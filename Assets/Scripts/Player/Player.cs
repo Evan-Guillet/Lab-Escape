@@ -89,7 +89,7 @@ public class Player : MonoBehaviour {
                 animator.SetBool("IsShooting", true);
                 _cycleTime = Time.time + _fireRate;
                 if (projectil != null){
-                    Instantiate(projectil,new Vector3(transform.position.x,transform.position.y-0.2f,transform.position.z), transform.rotation);
+                    Instantiate(projectil,new Vector3(transform.position.x + 0.25f,transform.position.y+0.25f,transform.position.z), transform.rotation);
                 } else {
                     Debug.LogError("the bullet is NULL");
                 }
@@ -154,6 +154,16 @@ public class Player : MonoBehaviour {
                 canvas.SetActive(false);
             }
             
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision){
+
+        if(collision.gameObject.tag == "projectile"){
+            currentHitPoints -= 1;
+            if(currentHitPoints <= 0){
+                Destroy(gameObject);
+            }
         }
     }
 }
