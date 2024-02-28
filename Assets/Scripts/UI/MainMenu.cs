@@ -11,6 +11,11 @@ public class StartMenu : MonoBehaviour
             SceneManager.LoadScene("Level 1");
     }
 
+    public void CreditMenu()
+    {
+            SceneManager.LoadScene("Credit");
+    }
+
     // Update is called once per frame
     public void QuitGame()
     {

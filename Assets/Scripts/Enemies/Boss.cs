@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Panda;
+using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour {
 
@@ -32,6 +33,7 @@ public class Boss : MonoBehaviour {
 
     void Update(){
         FlipSpriteToX();
+        Death();
     }
 
     void FlipSpriteToX(){
@@ -127,21 +129,11 @@ public class Boss : MonoBehaviour {
         }
     }
 
-    [Task]
     void Death(){
-        if(hitPoints > 0){
-            Task.current.Fail();
-            return;
-        }
-        if(timer >= 1.5f){
+        if(hitPoints < 1){
             Destroy(gameObject);
-            return;
-        }
-        transform.position = deathPosition;
-        if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
-            animator.SetTrigger("Death");
-        
-        timer += Time.deltaTime;
+            SceneManager.LoadScene("WinScreen");
+        } 
     }
 
     void OnCollisionEnter2D(Collision2D collision){
