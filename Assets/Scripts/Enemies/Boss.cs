@@ -147,8 +147,7 @@ public class Boss : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision){
 
         if(collision.gameObject.tag == "projectile"){
-            hitPoints -= 10;
-            Debug.Log(hitPoints);
+            hitPoints -= 1;
         }
     }
 }

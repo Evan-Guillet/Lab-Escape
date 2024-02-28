@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: -4260582018207274660}
   - component: {fileID: -1990480836912558951}
   - component: {fileID: 1345354320811849750}
-  - component: {fileID: -1750039334601332545}
+  - component: {fileID: 7604910979229848864}
   m_Layer: 0
   m_Name: Rocket
-  m_TagString: Untagged
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,7 +159,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-1750039334601332545
+--- !u!114 &7604910979229848864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5838376526697436242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce5396f2dfe98c343983ebf94c217c98, type: 3}
+  m_Script: {fileID: 11500000, guid: b1f189e39546dbf499fca3676bf8cbb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spd: 15

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class EnemyProjectile : MonoBehaviour
 {
     [SerializeField] private float _spd = 15.0f;
     public void Update(){
@@ -17,10 +17,7 @@ public class Projectile : MonoBehaviour
         if(collision.gameObject.tag == "wall"){
             Destroy(gameObject);
         }
-        if(collision.gameObject.tag == "Kamikaze"){
-            Destroy(gameObject);
-        }
-        if(collision.gameObject.tag == "Boss"){
+        if(collision.gameObject.tag == "Player"){
             Destroy(gameObject);
         }
     }
