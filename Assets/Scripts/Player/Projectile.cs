@@ -23,5 +23,8 @@ public class Projectile : MonoBehaviour
         if(collision.gameObject.tag == "Boss"){
             Destroy(gameObject);
         }
+        if(collision.gameObject.tag == "Turret"){
+            Destroy(gameObject);
+        }
     }
 }

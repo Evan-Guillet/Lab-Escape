@@ -204,11 +204,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 4
-  maxHitPoints: 100
-  currentHitPoints: 100
-  lastHitPoints: 100
-  lastHitPointds: 100
-  _fireRate: 1
+  maxHitPoints: 10
+  currentHitPoints: 10
+  lastHitPoints: 10
+  _fireRate: 0.5
   projectil: {fileID: 2055602118348576037, guid: 21675e18c65c3294a8f5ddd0c317b1f6, type: 3}
   doorLev1_1: 0
   doorLev3_3: 0
