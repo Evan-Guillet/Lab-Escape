@@ -27,7 +27,7 @@
                     "name": "shoot",
                     "type": "Value",
                     "id": "98dee262-fdbb-4a9b-a599-a957509f0898",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
