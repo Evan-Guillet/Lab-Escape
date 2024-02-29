@@ -11,6 +11,10 @@ public class StartMenu : MonoBehaviour
             SceneManager.LoadScene("Level 1");
     }
 
+    public void Level3()
+    {
+            SceneManager.LoadScene("Level 3");
+    }
     public void CreditMenu()
     {
             SceneManager.LoadScene("Credit");

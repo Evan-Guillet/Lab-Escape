@@ -1379,7 +1379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7680445704980040056, guid: d2d00088be564da45be618f36ac3e89c, type: 3}
       propertyPath: m_SortingOrder
-      value: 50
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8688757763336420812, guid: d2d00088be564da45be618f36ac3e89c, type: 3}
       propertyPath: m_Pivot.x
@@ -11372,6 +11372,22 @@ PrefabInstance:
     - target: {fileID: 7039967712601218357, guid: 51ef023f7b0248540979dde1d920fd5e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205106781685155818, guid: 51ef023f7b0248540979dde1d920fd5e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 14.627995
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205106781685155818, guid: 51ef023f7b0248540979dde1d920fd5e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 7.5393815
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205106781685155818, guid: 51ef023f7b0248540979dde1d920fd5e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1177
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205106781685155818, guid: 51ef023f7b0248540979dde1d920fd5e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0408
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

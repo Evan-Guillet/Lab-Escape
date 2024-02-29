@@ -960,7 +960,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.5
+  orthographic size: 3.353468
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1031,11 +1031,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2949749525324955810, guid: 51ef023f7b0248540979dde1d920fd5e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 13.9349
+      value: 13.3988
       objectReference: {fileID: 0}
     - target: {fileID: 2949749525324955810, guid: 51ef023f7b0248540979dde1d920fd5e, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 7.0314
+      value: 6.6958
       objectReference: {fileID: 0}
     - target: {fileID: 2949749525324955810, guid: 51ef023f7b0248540979dde1d920fd5e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1067,11 +1067,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2949749525324955810, guid: 51ef023f7b0248540979dde1d920fd5e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.024505615
+      value: -0.0191
       objectReference: {fileID: 0}
     - target: {fileID: 2949749525324955810, guid: 51ef023f7b0248540979dde1d920fd5e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0021972656
+      value: -0.0095
       objectReference: {fileID: 0}
     - target: {fileID: 2949749525324955810, guid: 51ef023f7b0248540979dde1d920fd5e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1108,6 +1108,22 @@ PrefabInstance:
     - target: {fileID: 7039967712601218357, guid: 51ef023f7b0248540979dde1d920fd5e, type: 3}
       propertyPath: m_Colors.m_SelectedColor.r
       value: 0.6981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205106781685155818, guid: 51ef023f7b0248540979dde1d920fd5e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 14.713959
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205106781685155818, guid: 51ef023f7b0248540979dde1d920fd5e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 8.308184
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205106781685155818, guid: 51ef023f7b0248540979dde1d920fd5e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0725
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205106781685155818, guid: 51ef023f7b0248540979dde1d920fd5e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.369
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32540,7 +32556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8688757763336420812, guid: d2d00088be564da45be618f36ac3e89c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 10
+      value: 10.044
       objectReference: {fileID: 0}
     - target: {fileID: 8688757763336420812, guid: d2d00088be564da45be618f36ac3e89c, type: 3}
       propertyPath: m_LocalPosition.x
