@@ -20,5 +20,14 @@ public class EnemyProjectile : MonoBehaviour
         if(collision.gameObject.tag == "Player"){
             Destroy(gameObject);
         }
+        if(collision.gameObject.tag == "Kamikaze"){
+            Destroy(gameObject);
+        }
+        if(collision.gameObject.tag == "Boss"){
+            Destroy(gameObject);
+        }
+        if(collision.gameObject.tag == "EnemyProjectile"){
+            Destroy(gameObject);
+        }
     }
 }

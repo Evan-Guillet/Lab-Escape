@@ -61,51 +61,12 @@ public class Boss : MonoBehaviour {
         RocketthrowerAttack();
         agent.SetDestination(PerceivedTarget.transform.position);
         animator.SetBool("IsRunning", Mathf.Abs(agent.remainingDistance) > 0.0002f);
-        //Debug.Log("Mathf.Abs(agent.remainingDistance): " + Mathf.Abs(agent.remainingDistance));
         
         if(agent.remainingDistance <= 1f){
             Task.current.Fail();
             return;
         }
     }
-
-    /*
-    [Task]
-    void LaserAttack(){
-        if(PerceivedTarget == null){
-            Task.current.Fail();
-            return;
-        }
-
-    }
-    */
-    /*
-    [Task]
-    void FlamethrowerAttack(){
-        if(PerceivedTarget == null){
-            Task.current.Fail();
-            return;
-        }
-        
-        float range = Mathf.Abs(agent.remainingDistance);
-
-        if(Mathf.Abs(agent.velocity.x) == 0 || Mathf.Abs(agent.velocity.y) == 0){
-            animator.SetFloat("Idle&Shoot_2", range);
-
-        } else if(Mathf.Abs(agent.velocity.x) != 0 || Mathf.Abs(agent.velocity.y) != 0){
-            animator.SetFloat("Run&Shoot_2", range);
-        }
-
-
-        if(agent.remainingDistance >= 1.5){
-            Task.current.Fail();
-            return;
-        }
-        
-    }
-    */
-    
-
 
     [Task]
     void RocketthrowerAttack(){
@@ -115,7 +76,7 @@ public class Boss : MonoBehaviour {
         }
         if(Time.time>_cycleTime){
             _cycleTime = Time.time + _fireRate;
-            if(PerceivedTarget.transform.position.y >= transform.position.y && PerceivedTarget.transform.position.y <= transform.position.y + 10f){
+            if(PerceivedTarget.transform.position.y >= transform.position.y -2f && PerceivedTarget.transform.position.y <= transform.position.y + 2f){
                 if(agent.velocity.x > 0 && PerceivedTarget.transform.position.x >= transform.position.x){
                     Instantiate(projectil, new Vector3(transform.position.x+2f,transform.position.y+1f,transform.position.z), transform.rotation);
                 } 
