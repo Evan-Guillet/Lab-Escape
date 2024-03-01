@@ -1,0 +1,106 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+using Panda;
+using UnityEngine.SceneManagement;
+
+public class Boss : MonoBehaviour {
+
+    NavMeshAgent agent;
+
+    SpriteRenderer spriteRenderer;
+    Animator animator;
+    public GameObject PerceivedTarget = null;
+
+    float timer = 0.0f;
+    public float hitPoints = 10;
+    Vector3 deathPosition;
+
+    [SerializeField] public GameObject projectil;
+
+    [SerializeField] float _fireRate = 1.0f;
+    float _cycleTime = 0.0f;
+    
+    void Start(){
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+    }
+
+    void Update(){
+        FlipSpriteToX();
+        Death();
+    }
+
+    void FlipSpriteToX(){
+        if(agent.velocity.x < 0){
+            // spriteRenderer.flipX = true;
+            transform.rotation = new Quaternion(0,180,0,0);
+
+        } else if(agent.velocity.x > 0){
+            // spriteRenderer.flipX = false;
+            transform.rotation = new Quaternion(0,0,0,0);
+        }
+    }
+
+    [Task]
+    void PursueTarget(){
+        if(PerceivedTarget == null){
+            Task.current.Fail();
+            return;
+        }
+        if(hitPoints <= 0){
+            deathPosition = transform.position;
+            Task.current.Fail();
+            return;
+        }
+        RocketthrowerAttack();
+        agent.SetDestination(PerceivedTarget.transform.position);
+        animator.SetBool("IsRunning", Mathf.Abs(agent.remainingDistance) > 0.0002f);
+        
+        if(agent.remainingDistance <= 1f){
+            Task.current.Fail();
+            return;
+        }
+    }
+
+    [Task]
+    void RocketthrowerAttack(){
+        if(PerceivedTarget == null){
+            Task.current.Fail();
+            return;
+        }
+        if(Time.time>_cycleTime){
+            _cycleTime = Time.time + _fireRate;
+            if(PerceivedTarget.transform.position.y >= transform.position.y -2f && PerceivedTarget.transform.position.y <= transform.position.y + 2f){
+                if(agent.velocity.x > 0 && PerceivedTarget.transform.position.x >= transform.position.x){
+                    Instantiate(projectil, new Vector3(transform.position.x+2f,transform.position.y+1f,transform.position.z), transform.rotation);
+                } 
+                if(agent.velocity.x < 0 && PerceivedTarget.transform.position.x <= transform.position.x){
+                    Instantiate(projectil, new Vector3(transform.position.x-2f,transform.position.y+1f,transform.position.z), transform.rotation);
+                } 
+            } else {
+                Task.current.Fail();
+                return;
+            }
+        }
+    }
+
+    void Death(){
+        if(hitPoints < 1){
+            Destroy(gameObject);
+            SceneManager.LoadScene("WinScreen");
+        } 
+    }
+
+    void OnCollisionEnter2D(Collision2D collision){
+
+        if(collision.gameObject.tag == "projectile"){
+            hitPoints -= 1;
+        }
+    }
+}
