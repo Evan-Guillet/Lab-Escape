@@ -8,10 +8,9 @@ The laboratory is now a cybernetic fortress, with sections devastated by robotic
 
 
 # How to play the game? ⬇
-1. Go to the `Build` folder
-2. Download `LabEscapSetup.exe`
-3. Launch the installer and follow the installation procedure
-4. ... and now you can play!
+1. Dowload the project with `git clone`
+2. Start with live server in VsCode the file `LAB-ESCAPE/Save/index.html`
+3. ... and now you can play!
 
 
 # Goal 🎯
