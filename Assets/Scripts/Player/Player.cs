@@ -16,7 +16,6 @@ public class Player : MonoBehaviour {
     public float maxHitPoints = 10;
     public float currentHitPoints = 10;
     public float lastHitPoints = 10;
-    public float lastHitPointds = 10;
     public event Action OnHit;
     float time = 0.0f;
     Rigidbody2D rigidBody;
@@ -100,7 +99,6 @@ public class Player : MonoBehaviour {
 
     void IsHit(){
         if(currentHitPoints < lastHitPoints){
-            OnHit?.Invoke();
             if(currentHitPoints == 9){
                 CanvasImage.sprite = image9;
             } 
@@ -160,8 +158,9 @@ public class Player : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D collision){
-
+        
         if(collision.gameObject.tag == "EnemyProjectile"){
+            print("oui");
             currentHitPoints -= 1;
         }
     }
